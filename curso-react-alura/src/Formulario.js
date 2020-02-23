@@ -6,7 +6,10 @@ class Formulario extends Component {
     constructor(props) {
         super(props);
 
-        this.validator = new FormValidator();
+        this.validator = new FormValidator({
+            campo: 'nome',
+            metodo: 'isEmpty'
+        });
 
         this.stateInicial = {
             nome: '',
