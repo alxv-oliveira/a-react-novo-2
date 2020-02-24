@@ -18,9 +18,12 @@ class Autores extends Component {
     componentDidMount(){
         ApiService.ListaNomes()
                 .then(res => {
-                    this.setState({nomes: [...this.state.nomes, ...res.data]});
+                    if(res.message === 'success'){
                         PopUp.exibeMensagem('success', 'Autores Listados com sucesso');
-                });
+                        this.setState({nomes: [...this.state.nomes, ...res.data]});
+                    }
+                })
+                .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar os autores'));
     }
 
     render() {

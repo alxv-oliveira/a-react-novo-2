@@ -1,23 +1,13 @@
-import React, { Component, Fragment } from 'react';
-
+import React, { Fragment } from 'react';
 import Header from './Header';
 
-class NotFound extends Component{
+const NotFound = () =>{
 
-    render(){
-        return(
-            
-            <Fragment>
-                <Header />
-                <div className="container">
-                    <h1 className="center"> Página não encontrada </h1>
-                </div>
-               
-            </Fragment>
-            
-        )
-    }
-
-
+    return (
+        <Fragment>
+            <Header />
+            <h1>Página Não Encontrada</h1>
+        </Fragment>
+    );
 }
 export default NotFound;

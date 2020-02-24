@@ -17,9 +17,13 @@ class Livros extends Component {
     componentDidMount(){
         ApiService.ListaLivros()
                     .then(res => {
+                        if(res.message === 'success'){
+                            PopUp.exibeMensagem('success', 'Livros listados com sucesso');
                             this.setState({livros : [...this.state.livros, ...res.data]});
-                            PopUp.exibeMensagem('success', 'Livros listados com sucesso');   
-                    });
+
+                        }
+                    })
+                    .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar os livros'));
     }
 
     render() {
